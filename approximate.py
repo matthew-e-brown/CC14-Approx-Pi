@@ -20,7 +20,7 @@ threads = []
 for i in range(0, 15):
     threads.append( Thread(target = chunk, args = ()) )
     threads[i].start()
-    threads[i].join()
+    if i == 14: threads[i].join() #Only wait for the last thread to finish
 
 print("Total Dots: %s\nCircle Dots: %s" % (totalDots, circleDots))
 pi = 4.0 * circleDots / totalDots
